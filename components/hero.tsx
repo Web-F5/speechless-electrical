@@ -10,7 +10,7 @@ const stats = [
   { icon: <Clock size={20} />, value: '5★', label: 'Google Rating' },
 ]
 
-const carouselSlides = [
+const desktopSlides = [
   {
     src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/kitchen-u3gWkZiYNAwik8nOXuDLbxtxcPJZdC.jpg',
     alt: 'Professional kitchen lighting installation',
@@ -28,11 +28,43 @@ const carouselSlides = [
   },
 ]
 
+const mobileSlides = [
+  {
+    src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Indoorlighting-b2p34o3iN8r0UoNL1YWFWSqZlvC31y.jpg',
+    alt: 'Indoor lighting installation',
+    label: 'Indoor Lighting',
+  },
+  {
+    src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ceiling-downlights-vIMxeuWg8hvHx4v1DPBiv0gkrcYrkP.jpg',
+    alt: 'Ceiling downlights installation',
+    label: 'Ceiling Downlights',
+  },
+  {
+    src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/switchboard-CYBfqWlqXj9QM9dLXFNSbzuqDp26vH.jpg',
+    alt: 'Switchboard upgrade and safety switches',
+    label: 'Switchboard Upgrades',
+  },
+]
+
 const INTERVAL_MS = 5000
 
 export default function Hero() {
   const [current, setCurrent] = useState(0)
   const [transitioning, setTransitioning] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)')
+    const handler = (e: MediaQueryListEvent | MediaQueryList) => {
+      setIsMobile(e.matches)
+      setCurrent(0)
+    }
+    handler(mq)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  const carouselSlides = isMobile ? mobileSlides : desktopSlides
 
   const goTo = useCallback((index: number) => {
     if (transitioning) return
