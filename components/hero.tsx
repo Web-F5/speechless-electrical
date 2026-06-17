@@ -2,13 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import { Phone, Zap, Shield, Clock, ChevronLeft, ChevronRight } from 'lucide-react'
-
-const stats = [
-  { icon: <Zap size={20} />, value: '10+', label: 'Years Experience' },
-  { icon: <Shield size={20} />, value: '100%', label: 'Licensed & Insured' },
-  { icon: <Clock size={20} />, value: '5★', label: 'Google Rating' },
-]
+import { Phone, Zap, Shield, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const desktopSlides = [
   {
@@ -91,8 +85,8 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ backgroundColor: '#090040' }}
+      className="relative flex items-center overflow-hidden"
+      style={{ minHeight: 'clamp(420px, 70vh, 680px)', backgroundColor: '#090040' } as React.CSSProperties}
     >
       {/* Background carousel */}
       <div className="absolute inset-0 z-0">
@@ -168,25 +162,25 @@ export default function Hero() {
         {carouselSlides[current].label}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-36 pb-24 flex flex-col lg:flex-row items-center gap-12">
-        {/* Left: Text content */}
-        <div className="flex-1 text-center lg:text-left">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-28 pb-16 flex flex-col items-center text-center gap-8 w-full">
+        {/* Text content */}
+        <div className="w-full max-w-3xl flex flex-col items-center text-center">
           <p
-            className="font-heading font-600 text-base md:text-lg tracking-widest uppercase mb-4"
+            className="font-heading font-600 text-sm md:text-base tracking-widest uppercase mb-4"
             style={{ color: '#B13BFF' }}
           >
             Licensed Electrical Contractor · Rec No. 35659
           </p>
 
           <h1
-            className="font-heading font-900 text-4xl md:text-5xl lg:text-6xl leading-tight text-balance mb-6"
+            className="font-heading font-900 text-4xl md:text-5xl lg:text-6xl leading-tight text-balance mb-5"
             style={{ color: '#F3F4F4' }}
           >
             Powering Seymour &amp;{' '}
             <span style={{ color: '#FFCC00' }}>Surrounding Areas</span>
           </h1>
 
-          <p className="text-base md:text-lg leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0" style={{ color: '#c8c9d4' }}>
+          <p className="text-base md:text-lg leading-relaxed mb-7 max-w-xl" style={{ color: '#c8c9d4' }}>
             From lighting upgrades to full switchboard replacements, Speechless Electrical delivers
             safe, compliant, and cost-effective solutions for homes and businesses across the region.
           </p>
@@ -194,7 +188,7 @@ export default function Hero() {
           {/* Phone number — prominent */}
           <a
             href="tel:0417798312"
-            className="inline-flex items-center gap-3 mb-8 px-6 py-4 rounded-xl font-heading font-800 text-2xl border-2 transition-transform hover:scale-105"
+            className="inline-flex items-center gap-3 mb-7 px-6 py-4 rounded-xl font-heading font-800 text-2xl border-2 transition-transform hover:scale-105"
             style={{ color: '#FFCC00', borderColor: '#FFCC00', backgroundColor: 'rgba(255,204,0,0.08)' }}
           >
             <Phone size={28} strokeWidth={2.5} />
@@ -202,7 +196,7 @@ export default function Hero() {
           </a>
 
           {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#contact"
               className="btn-cta inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-heading font-700 text-base"
@@ -218,53 +212,12 @@ export default function Hero() {
               View Our Services
             </a>
           </div>
-
-          {/* Stats row */}
-          <div className="flex flex-wrap gap-6 mt-12 justify-center lg:justify-start">
-            {stats.map((stat) => (
-              <div key={stat.label} className="flex items-center gap-3">
-                <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center"
-                  style={{ backgroundColor: '#471396', color: '#FFCC00' }}
-                >
-                  {stat.icon}
-                </div>
-                <div>
-                  <div className="font-heading font-800 text-xl leading-none" style={{ color: '#FFCC00' }}>
-                    {stat.value}
-                  </div>
-                  <div className="text-xs mt-0.5" style={{ color: '#9899b0' }}>
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* Right: Service area badge */}
-        <div className="flex-shrink-0 w-full max-w-sm lg:max-w-xs">
-          <div
-            className="rounded-2xl p-6 shadow-2xl"
-            style={{ backgroundColor: 'rgba(9,0,64,0.75)', borderLeft: '4px solid #FFCC00', backdropFilter: 'blur(12px)' }}
-          >
-            <p className="font-heading font-700 text-sm mb-1" style={{ color: '#FFCC00' }}>
-              Servicing Seymour &amp; surrounds
-            </p>
-            <p className="text-xs leading-relaxed" style={{ color: '#c8c9d4' }}>
-              Seymour · Broadford · Kilmore · Wallan · Nagambie · Euroa · Tallarook · Avenel &amp; all surrounding areas
-            </p>
-            <div
-              className="mt-4 pt-4 flex items-center gap-2"
-              style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
-            >
-              <Shield size={16} style={{ color: '#FFCC00' }} />
-              <span className="text-xs font-heading font-600" style={{ color: '#F3F4F4' }}>
-                Fully Licensed · Rec No. 35659
-              </span>
-            </div>
-          </div>
+
         </div>
+
+
       </div>
 
       {/* Bottom wave */}

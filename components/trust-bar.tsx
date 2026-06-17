@@ -1,0 +1,66 @@
+import { Zap, Shield, Star } from 'lucide-react'
+
+const stats = [
+  { icon: <Zap size={22} />, value: '10+', label: 'Years Experience' },
+  { icon: <Shield size={22} />, value: '100%', label: 'Licensed & Insured' },
+  { icon: <Star size={22} />, value: '5★', label: 'Google Rating' },
+]
+
+const areas = ['Seymour', 'Broadford', 'Kilmore', 'Wallan', 'Nagambie', 'Euroa', 'Tallarook', 'Avenel']
+
+export default function TrustBar() {
+  return (
+    <section aria-label="Trust and service area" style={{ backgroundColor: '#090040' }}>
+      {/* Stats strip */}
+      <div
+        className="border-b"
+        style={{ borderColor: 'rgba(177,59,255,0.25)' }}
+      >
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 flex flex-wrap justify-center md:justify-between gap-6">
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex items-center gap-3">
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ backgroundColor: '#471396', color: '#FFCC00' }}
+              >
+                {stat.icon}
+              </div>
+              <div>
+                <div className="font-heading font-800 text-2xl leading-none" style={{ color: '#FFCC00' }}>
+                  {stat.value}
+                </div>
+                <div className="font-sans text-xs mt-0.5" style={{ color: '#9899b0' }}>
+                  {stat.label}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Service area strip */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-5 flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+        <p className="font-heading font-700 text-sm whitespace-nowrap" style={{ color: '#FFCC00' }}>
+          Servicing Seymour &amp; surrounds
+        </p>
+        <div
+          className="hidden sm:block h-5 w-px flex-shrink-0"
+          style={{ backgroundColor: 'rgba(255,204,0,0.3)' }}
+        />
+        <p className="font-sans text-xs text-center sm:text-left leading-relaxed" style={{ color: '#c8c9d4' }}>
+          {areas.join(' · ')} &amp; all surrounding areas
+        </p>
+        <div
+          className="hidden sm:block h-5 w-px flex-shrink-0 ml-auto"
+          style={{ backgroundColor: 'rgba(255,255,255,0.12)' }}
+        />
+        <div className="flex items-center gap-1.5 flex-shrink-0">
+          <Shield size={14} style={{ color: '#FFCC00' }} />
+          <span className="font-heading font-600 text-xs whitespace-nowrap" style={{ color: '#F3F4F4' }}>
+            Fully Licensed · Rec No. 35659
+          </span>
+        </div>
+      </div>
+    </section>
+  )
+}
