@@ -1,0 +1,114 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Open Sans', 'Open Sans Fallback', sans-serif;
+  --font-heading: 'Montserrat', 'Montserrat Fallback', sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
+
+  /* Brand palette */
+  --color-brand-light: #F3F4F4;
+  --color-brand-dark: #090040;
+  --color-brand-purple: #471396;
+  --color-brand-violet: #B13BFF;
+  --color-brand-yellow: #FFCC00;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: light;
+  --background: #F3F4F4;
+  --foreground: #090040;
+  --card: #ffffff;
+  --card-foreground: #090040;
+  --popover: #ffffff;
+  --popover-foreground: #090040;
+  --primary: #471396;
+  --primary-foreground: #F3F4F4;
+  --secondary: #090040;
+  --secondary-foreground: #F3F4F4;
+  --muted: #e8e9e9;
+  --muted-foreground: #4a4a6a;
+  --accent: #B13BFF;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #d0d1d1;
+  --input: #d0d1d1;
+  --ring: #B13BFF;
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* CTA button style — gold background, dark navy text, always legible */
+.btn-cta {
+  background-color: #FFCC00;
+  color: #090040 !important;
+  font-weight: 700;
+  transition: background-color 0.2s, transform 0.15s;
+}
+.btn-cta:hover {
+  background-color: #e6b800;
+  transform: translateY(-1px);
+}
+
+/* Hero carousel animation */
+@keyframes carousel-fade {
+  0%   { opacity: 1; }
+  30%  { opacity: 1; }
+  40%  { opacity: 0; }
+  90%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Highlight text */
+.text-violet {
+  color: #B13BFF;
+}
+.text-yellow {
+  color: #FFCC00;
+}
