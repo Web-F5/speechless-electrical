@@ -199,7 +199,14 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#contact"
-              className="btn-cta inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-heading font-700 text-base"
+              className="btn-cta hidden md:inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-heading font-700 text-base"
+            >
+              <Zap size={20} strokeWidth={2.5} />
+              Get a Free Quote
+            </a>
+            <a
+              href="#quote-form"
+              className="btn-cta md:hidden inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-heading font-700 text-base"
             >
               <Zap size={20} strokeWidth={2.5} />
               Get a Free Quote

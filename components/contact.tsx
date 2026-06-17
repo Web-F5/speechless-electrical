@@ -132,7 +132,7 @@ export default function Contact() {
           </div>
 
           {/* Right: Form */}
-          <div className="flex-1">
+          <div id="quote-form" className="flex-1">
             <div
               className="rounded-2xl p-6 md:p-8"
               style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
