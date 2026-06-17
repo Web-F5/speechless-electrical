@@ -138,7 +138,7 @@ export default function Hero() {
       </button>
 
       {/* Carousel dot indicators */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {carouselSlides.map((slide, i) => (
           <button
             key={slide.label}
