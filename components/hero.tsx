@@ -137,8 +137,8 @@ export default function Hero() {
         <ChevronRight size={24} />
       </button>
 
-      {/* Carousel dot indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      {/* Carousel dot indicators + label (mobile: side by side; desktop: label top-right) */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
         {carouselSlides.map((slide, i) => (
           <button
             key={slide.label}
@@ -152,11 +152,18 @@ export default function Hero() {
             }}
           />
         ))}
+        {/* Label inline on mobile, hidden on desktop */}
+        <div
+          className="md:hidden px-3 py-1 rounded-full text-xs font-heading font-600 tracking-wide"
+          style={{ backgroundColor: 'rgba(71,19,150,0.7)', color: '#F3F4F4', backdropFilter: 'blur(4px)' }}
+        >
+          {carouselSlides[current].label}
+        </div>
       </div>
 
-      {/* Current slide label */}
+      {/* Current slide label — desktop only, top-right */}
       <div
-        className="absolute bottom-24 right-6 z-20 px-3 py-1 rounded-full text-xs font-heading font-600 tracking-wide"
+        className="hidden md:block absolute bottom-24 right-6 z-20 px-3 py-1 rounded-full text-xs font-heading font-600 tracking-wide"
         style={{ backgroundColor: 'rgba(71,19,150,0.7)', color: '#F3F4F4', backdropFilter: 'blur(4px)' }}
       >
         {carouselSlides[current].label}
