@@ -138,7 +138,7 @@ export default function Hero() {
       </button>
 
       {/* Carousel dot indicators + label (mobile: side by side; desktop: label top-right) */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 md:flex-row md:gap-3">
         {carouselSlides.map((slide, i) => (
           <button
             key={slide.label}
