@@ -213,11 +213,6 @@ export default function Hero() {
             </a>
           </div>
         </div>
-
-
-        </div>
-
-
       </div>
 
       {/* Bottom wave */}
