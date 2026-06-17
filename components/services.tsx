@@ -141,7 +141,14 @@ export default function Services() {
             </a>
             <a
               href="#contact"
-              className="btn-cta inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-heading font-700 text-base"
+              className="btn-cta hidden sm:inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-heading font-700 text-base"
+            >
+              <Zap size={18} strokeWidth={2.5} />
+              Get a Free Quote
+            </a>
+            <a
+              href="#quote-form"
+              className="btn-cta sm:hidden inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-heading font-700 text-base"
             >
               <Zap size={18} strokeWidth={2.5} />
               Get a Free Quote

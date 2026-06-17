@@ -111,7 +111,7 @@ export default function Navbar() {
             ))}
           </ul>
           <a
-            href="#contact"
+            href="#quote-form"
             className="btn-cta flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-heading font-700 text-base w-full"
             onClick={() => setMobileOpen(false)}
           >
