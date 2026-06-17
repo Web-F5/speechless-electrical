@@ -48,7 +48,14 @@ export default function Footer() {
             </a>
             <a
               href="#contact"
-              className="btn-cta inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-heading font-700 text-base"
+              className="btn-cta hidden sm:inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-heading font-700 text-base"
+            >
+              <Zap size={18} strokeWidth={2.5} />
+              Get a Quote
+            </a>
+            <a
+              href="#quote-form"
+              className="btn-cta sm:hidden inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-heading font-700 text-base"
             >
               <Zap size={18} strokeWidth={2.5} />
               Get a Quote
@@ -146,7 +153,14 @@ export default function Footer() {
           </a>
           <a
             href="#contact"
-            className="btn-cta inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-heading font-700 text-sm w-full"
+            className="btn-cta hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-heading font-700 text-sm w-full"
+          >
+            <Zap size={16} strokeWidth={2.5} />
+            Request a Quote
+          </a>
+          <a
+            href="#quote-form"
+            className="btn-cta sm:hidden inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-heading font-700 text-sm w-full"
           >
             <Zap size={16} strokeWidth={2.5} />
             Request a Quote
