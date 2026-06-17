@@ -137,8 +137,8 @@ export default function Hero() {
         <ChevronRight size={24} />
       </button>
 
-      {/* Carousel dot indicators + label (mobile: side by side; desktop: label top-right) */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 md:flex-row md:gap-3">
+      {/* Carousel dot indicators — desktop only (mobile rendered in content flow below) */}
+      <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-20 gap-2">
         {carouselSlides.map((slide, i) => (
           <button
             key={slide.label}
@@ -152,13 +152,6 @@ export default function Hero() {
             }}
           />
         ))}
-        {/* Label inline on mobile, hidden on desktop */}
-        <div
-          className="md:hidden px-3 py-1 rounded-full text-xs font-heading font-600 tracking-wide"
-          style={{ backgroundColor: 'rgba(71,19,150,0.7)', color: '#F3F4F4', backdropFilter: 'blur(4px)' }}
-        >
-          {carouselSlides[current].label}
-        </div>
       </div>
 
       {/* Current slide label — desktop only, top-right */}
@@ -218,6 +211,31 @@ export default function Hero() {
             >
               View Our Services
             </a>
+          </div>
+
+          {/* Dots + label — mobile only, in flow after buttons */}
+          <div className="flex md:hidden flex-col items-center gap-2 mt-6">
+            <div className="flex gap-2">
+              {carouselSlides.map((slide, i) => (
+                <button
+                  key={slide.label}
+                  onClick={() => goTo(i)}
+                  aria-label={`Go to slide ${i + 1}: ${slide.label}`}
+                  className="rounded-full transition-all duration-300"
+                  style={{
+                    width: i === current ? 28 : 8,
+                    height: 8,
+                    backgroundColor: i === current ? '#FFCC00' : 'rgba(255,255,255,0.4)',
+                  }}
+                />
+              ))}
+            </div>
+            <div
+              className="px-3 py-1 rounded-full text-xs font-heading font-600 tracking-wide"
+              style={{ backgroundColor: 'rgba(71,19,150,0.7)', color: '#F3F4F4', backdropFilter: 'blur(4px)' }}
+            >
+              {carouselSlides[current].label}
+            </div>
           </div>
         </div>
       </div>
